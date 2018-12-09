@@ -1,7 +1,5 @@
 class KadaiCalc
 
-  attr_accessor :num1
-  attr_accessor :num2
 
   def initialize
 
