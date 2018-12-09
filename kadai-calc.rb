@@ -4,27 +4,30 @@ require "./kadai_calc_class"
 
 
 kadai_calc = KadaiCalc.new
-# initilaze呼び出し
+# initializeでモードを選択
 
 mode = gets.chomp.to_i
 
 if mode == 1
-    puts "足し算モードを起動します"
+    puts <<~TEXT
+    足し算モードを起動します
+    2つの数字を入力してください
 
-    kadai_calc.input_num
+    1つ目の数字を入力してください
+    TEXT
 
-    kadai_calc.info
+    num1 = gets.chomp.to_i
 
-    puts "計算結果は#{kadai_calc.add(kadai_calc.num1,kadai_calc.num2)}です"
+    puts "2つ目の数字を入力してください"
+
+    num2 = gets.chomp.to_i
+
+
+    puts "計算結果は#{kadai_calc.add(num1,num2)}です"
 
   elsif mode == 2
     puts "引き算モードを起動します"
 
-    kadai_calc.input_num
-
-    kadai_calc.info
-
-    puts "計算結果は#{kadai_calc.minus(kadai_calc.num1,kadai_calc.num2)}です"
   else
     puts "入力が正しくありません"
 end
