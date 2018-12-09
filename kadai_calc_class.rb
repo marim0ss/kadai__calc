@@ -1,19 +1,37 @@
-class KadaiCalc
+class Calc
 
-  attr_accessor :num1
-  attr_accessor :num2
+  attr_accessor :num1, :num2, :operator
 
-  def initialize
+  def calculate
+    select_mode
+    input_num
+    ans = 0
 
+    if self.operator == "+"
+      ans = self.num1 + self.num2
+    elsif self.operator == "-"
+      ans = self.num1 - self.num2
+    end
+    puts "#{num1}#{self.operator}#{num2}の計算結果は#{ans}になりました。"
+  end
+
+
+  def select_mode
     puts <<~TEXT
-
     番号を選択してください
 
     1.足し算モード
     2.引き算モード
     TEXT
-  end
+    mode = gets.chomp.to_i
 
+    # モードを選んだら + か - かを決定する
+    if mode == 1
+      self.operator = "+"
+    elsif mode == 2
+      self.operator = "-"
+    end
+  end
 
   # 入力された数字を受け取るのをメソッド化する
   def input_num
@@ -28,21 +46,6 @@ class KadaiCalc
     puts "2つ目の数字を入力してください"
 
     self.num2 = gets.chomp.to_i
-  end
-
-  def info
-    puts "入力した数字は #{self.num1} と #{self.num2}"
-  end
-
-
-
-  def add(num1, num2)
-    num1 + num2
-  end
-
-
-  def minus(num1, num2)
-    num1 - num2
   end
 
 end
