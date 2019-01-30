@@ -12,6 +12,7 @@ class Calc
     elsif self.operator == "-"
       ans = self.num1 - self.num2
     end
+    # ゴール
     puts "#{num1}#{self.operator}#{num2}の計算結果は#{ans}になりました。"
   end
 
